@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "//emirates-flight-status/static/css/main.073c9b0a.css",
+    "main.js": "//emirates-flight-status/static/js/main.911fad23.js",
+    "static/js/787.953b0857.chunk.js": "//emirates-flight-status/static/js/787.953b0857.chunk.js",
+    "static/media/logo.svg": "//emirates-flight-status/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "//emirates-flight-status/index.html",
+    "main.073c9b0a.css.map": "//emirates-flight-status/static/css/main.073c9b0a.css.map",
+    "main.911fad23.js.map": "//emirates-flight-status/static/js/main.911fad23.js.map",
+    "787.953b0857.chunk.js.map": "//emirates-flight-status/static/js/787.953b0857.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.911fad23.js"
+  ]
+}
