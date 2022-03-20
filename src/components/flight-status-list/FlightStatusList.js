@@ -5,10 +5,6 @@ import CircleIcon from '@mui/icons-material/Circle';
 
 const FlightStatusList = ({ flightList, airportList }) => {
 
-    console.log(flightList);
-    console.log(airportList);
-
-
     const getAirportDisplayStringFromCode = (airportCode, airportList) => {
         const airportShortName = airportList
             && airportList
