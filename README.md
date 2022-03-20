@@ -21,4 +21,10 @@ https://www.emirates.com/service/airports?lang=en
 To get flight status for a departure and arrival destination for 3 closest days:
 https://www.emirates.com/service/flight-status?departureDate=2022-03-17&origin=DXB&destination=LHR
 
+Desktop View:
 
+<img width="849" alt="image" src="https://user-images.githubusercontent.com/31946584/159186027-25702597-4ddd-4bb7-861f-d5b2edb8b40a.png">
+
+Mobile View:
+
+<img width="154" alt="image" src="https://user-images.githubusercontent.com/31946584/159186104-ee4e256e-010b-4cc9-8007-9b031dc07892.png">
