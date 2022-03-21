@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react'
-import { Autocomplete, TextField, Box, MenuItem, Stack, Button, LoadingButton } from '@mui/material';
+import React, { Fragment, useState } from 'react'
+import { Autocomplete, TextField, Box, MenuItem, Stack, Button } from '@mui/material';
 
 const FlightInput = ({ airportList, getFlightStatusInfo }) => {
 
@@ -10,11 +10,6 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
     const [arrAirportInpVal, setArrAirportInpVal] = useState('');
 
     const [depDate, setdepDate] = useState('');
-
-    // const [loading, setLoading] = React.useState(true);
-    // function handleClick() {
-    //   setLoading(true);
-    // }
 
     const handleViewDetailsClick = () => {
         const depAirportCode = depAirportVal.id;
@@ -68,8 +63,6 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
             label: `${airport.airportName} (${airport.airportCode})`
         }
     ))
-    const dateList = getDateList();
-
 
     const handleDepDateChange = (event) => {
         setdepDate(event.target.value)
@@ -77,7 +70,6 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
 
     return (
         <Fragment>
-            {/* <div>FlightInput</div> */}
             <Stack
                 direction={{ xs: 'column', md: 'row' }}
                 justifyContent='center'
@@ -161,20 +153,6 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
                   }}>
                     View Details
                 </Button>
-
-                {/* <LoadingButton
-          size="small"
-          onClick={handleClick}
-          loading={loading}
-          loadingIndicator="Loading..."
-          variant="outlined"
-        >
-          Fetch data
-        </LoadingButton> */}
-                {/* <LoadingButton loading variant="outlined">
-                Submit
-            </LoadingButton> */}
-                {/* <input type='button' value='View Details' /> */}
             </Stack>
         </Fragment>
     )

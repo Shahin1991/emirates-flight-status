@@ -5,9 +5,6 @@ import * as FlightStatusRes from '../../mocks/flight-status-DXB-LHR.json';
 import { Typography } from '@mui/material';
 
 const FlightStatus = () => {
-    const [depAirportCode, setdepAirportCode] = useState('DXB');
-    const [arrAirportCode, setarrAirportCode] = useState('LHR');
-    const [depDate, setdepDate] = useState('2022-03-19');
     const [airportList, setairportList] = useState([]);
     const [flightList, setflightList] = useState([])
 
@@ -22,23 +19,6 @@ const FlightStatus = () => {
         }
     }, [])
 
-    // useEffect(() => {
-    //     fetch('https://www.emirates.com/service/flight-status?departureDate=2022-03-17&origin=DXB&destination=LHR')
-    //         .then(res => res.json())
-    //         .then(json => {
-    //             const flightList = json.results;
-    //             setflightList(flightList);
-    //         })
-    //         .catch(err => {
-    //             const flightListResponse = FlightStatusRes;
-    //             const flightListResults = flightListResponse.results
-    //             setflightList(flightListResults);
-    //             // console.log(flightListResults);
-    //         })
-    //     return () => {
-    //     }
-    // }, [])
-
     const getFlightStatusInfo = ({ depAirport, arrAirport, depDate }) => {
         const flightStatusApiUrl = `https://www.emirates.com/service/flight-status?departureDate=${depDate}&origin=${depAirport}&destination=${arrAirport}`
         console.log(flightStatusApiUrl);
@@ -51,7 +31,6 @@ const FlightStatus = () => {
                 const flightListResponse = FlightStatusRes;
                 const flightListResults = flightListResponse.results
                 setflightList(flightListResults);
-                // console.log(flightListResults);
             })
     }
 
@@ -65,18 +44,13 @@ const FlightStatus = () => {
                 airportName: airportObject[airportKey].longName,
                 airportShortName: airportObject[airportKey].shortName
             }))
-        // console.log(airportList);
         return airportList;
     }
 
 
     return (<Fragment>
-        {/* <div>FlightStatus</div> */}
         <Typography variant='h6'>Emirates</Typography>
         <Typography variant='h3'>Flight Status</Typography>
-        {/* <Typography variant='h3'>H3 heading</Typography> */}
-
-        {/* <Typography variant='h3'>H3 heading</Typography> */}
         <FlightInput
             airportList={airportList} 
             getFlightStatusInfo={getFlightStatusInfo}

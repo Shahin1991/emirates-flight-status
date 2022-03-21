@@ -48,7 +48,6 @@ const FlightStatusList = ({ flightList, airportList }) => {
 
     return (
         <Fragment>
-            {/* <div>FlightStatusList</div> */}
             {flightList && flightList.length > 0 ? (
                 flightList.map(flight => {
                     const {
@@ -63,12 +62,10 @@ const FlightStatusList = ({ flightList, airportList }) => {
                             arrivalTerminal,
                             departureTime: {
                                 schedule: scheduleDeparture,
-                                estimated: estimatedDeparture,
                                 actual: actualDeparture,
                             },
                             arrivalTime: {
                                 schedule: scheduleArrival,
-                                estimated: estimatedArrival,
                                 actual: actualArrival,
                             },
                         }]
