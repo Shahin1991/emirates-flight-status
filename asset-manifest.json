@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/emirates-flight-status/static/css/main.073c9b0a.css",
-    "main.js": "/emirates-flight-status/static/js/main.785172f0.js",
+    "main.css": "/emirates-flight-status/static/css/main.964fdded.css",
+    "main.js": "/emirates-flight-status/static/js/main.e468f02a.js",
     "static/js/787.953b0857.chunk.js": "/emirates-flight-status/static/js/787.953b0857.chunk.js",
     "index.html": "/emirates-flight-status/index.html",
-    "main.073c9b0a.css.map": "/emirates-flight-status/static/css/main.073c9b0a.css.map",
-    "main.785172f0.js.map": "/emirates-flight-status/static/js/main.785172f0.js.map",
+    "main.964fdded.css.map": "/emirates-flight-status/static/css/main.964fdded.css.map",
+    "main.e468f02a.js.map": "/emirates-flight-status/static/js/main.e468f02a.js.map",
     "787.953b0857.chunk.js.map": "/emirates-flight-status/static/js/787.953b0857.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.785172f0.js"
+    "static/css/main.964fdded.css",
+    "static/js/main.e468f02a.js"
   ]
 }
