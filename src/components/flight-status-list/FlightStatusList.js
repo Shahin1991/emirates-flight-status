@@ -322,8 +322,6 @@ const FlightStatusList = ({ flightList, airportList }) => {
                                                 </Typography>
                                             </Stack>
                                         </Stack>
-
-
                                     </Stack>
                                 </CardContent>
                             </Card>
@@ -331,7 +329,7 @@ const FlightStatusList = ({ flightList, airportList }) => {
                     )
                 })
             ) : (
-                <Typography variant="h4" component="div">Please select a valid flight combination</Typography>
+                <Typography variant={{ xs:'h6', md:'h4' }} component="div">Please select a valid flight combination</Typography>
             )
             }
         </Fragment>

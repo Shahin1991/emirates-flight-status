@@ -59,7 +59,7 @@ const FlightStatus = () => {
                   flightList={flightList}
                   airportList={airportList} />
             ):(
-                <Typography variant="h4" component="div">
+                <Typography variant={{ xs:'h6', md:'h4' }} component="div">
                     Please select a valid flight combination
                 </Typography>
             )}

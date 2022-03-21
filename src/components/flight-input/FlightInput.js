@@ -100,6 +100,11 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
                         setDepAirportInpVal(newInputValue);
                     }}
                     renderInput={(params) => <TextField {...params} label="Departure Airport" />}
+                    renderOption={(props, option) => (
+                        <Box component="li" sx={{textAlign:'start', fontSize:'0.875rem'}} {...props}>
+                            {option.label}
+                        </Box>
+                    )}
                 />
                 <Autocomplete
                     disablePortal
@@ -122,6 +127,11 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
                         setArrAirportInpVal(newInputValue);
                     }}
                     renderInput={(params) => <TextField {...params} label="Arrival Airport" />}
+                    renderOption={(props, option) => (
+                        <Box component="li" sx={{textAlign:'start', fontSize:'0.875rem'}} {...props}>
+                            {option.label}
+                        </Box>
+                    )}
                 />
                 <Box width={{ xs: '90vw', md: '20vw' }}>
                     <TextField
