@@ -18,19 +18,17 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
         const arrAirportCode = arrAirportVal && arrAirportVal.id;
 
         if(depAirportCode&&arrAirportCode&&depDate){
-            setShowValidationError(false)
-        }
-        else{
-            setShowValidationError(true)
-        }
-
-        if (!showValidationError) {
+            setShowValidationError(false);
             getFlightStatusInfo({
                 depAirport: depAirportCode,
                 arrAirport: arrAirportCode,
                 depDate: depDate,
             });
         }
+        else{
+            setShowValidationError(true)
+        }
+        console.log(showValidationError);
     }
 
     const getDateList = () => {
