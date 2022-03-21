@@ -4,6 +4,13 @@ This project is created for evaluation purposes.
 
 Project uses React
 
+Flow:
+
+The input for departure airport and arrival airport is done using response from airport API.
+The input for depDate is computed in code as the today, yesterday and tomorrow. 
+When a user selects the inputs and clicks on View details button, the API for flight status is hit with the query string parameters. The flight results card section below is rendered on receiving the result from 'flight status' API. (Since API for flight status is CORS restricted, we are showing mock results)
+
+
 Assumptions:
 
 Currently, the API for getting flight status for Emirates is blocked by CORS. Hence, using a mock response from an actual result to show the results

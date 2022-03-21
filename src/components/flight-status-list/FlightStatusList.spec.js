@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import FlightStatusList from './FlightStatusList';
-import {flightList, airportList, noFlightMessage} from './test.data';
+import {flightList, airportList} from './test.data';
 
 test('renders all departedText and arrivedText', () => {
     render(<FlightStatusList 
@@ -13,7 +13,7 @@ test('renders all departedText and arrivedText', () => {
      arrivedTextArray.every(arrivedText=>expect(arrivedText).toBeInTheDocument());
   });
 
-  test('renders warning message when there no flight list', () => {
+test('renders warning message when there no flight list', () => {
     render(<FlightStatusList 
         flightList={[]}
         airportList={airportList}
