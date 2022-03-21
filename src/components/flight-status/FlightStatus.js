@@ -21,7 +21,6 @@ const FlightStatus = () => {
 
     const getFlightStatusInfo = ({ depAirport, arrAirport, depDate }) => {
         const flightStatusApiUrl = `https://www.emirates.com/service/flight-status?departureDate=${depDate}&origin=${depAirport}&destination=${arrAirport}`
-        console.log(flightStatusApiUrl);
         fetch(flightStatusApiUrl)
             .then(json => {
                 const flightList = json.results;
