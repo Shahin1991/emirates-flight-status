@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import { Autocomplete, TextField, Box, MenuItem, Stack, Button } from '@mui/material';
+import { Autocomplete, TextField, Box, MenuItem, Stack, Button, Chip } from '@mui/material';
 
 const FlightInput = ({ airportList, getFlightStatusInfo }) => {
 
@@ -11,15 +11,26 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
 
     const [depDate, setdepDate] = useState('');
 
-    const handleViewDetailsClick = () => {
-        const depAirportCode = depAirportVal.id;
-        const arrAirportCode = arrAirportVal.id;
+    const [showValidationError, setShowValidationError] = useState(false);
 
-        getFlightStatusInfo({
-            depAirport:depAirportCode,
-            arrAirport:arrAirportCode,
-            depDate:depDate,
-        });
+    const handleViewDetailsClick = () => {
+        const depAirportCode = depAirportVal && depAirportVal.id;
+        const arrAirportCode = arrAirportVal && arrAirportVal.id;
+
+        if(depAirportCode&&arrAirportCode&&depDate){
+            setShowValidationError(false)
+        }
+        else{
+            setShowValidationError(true)
+        }
+
+        if (!showValidationError) {
+            getFlightStatusInfo({
+                depAirport: depAirportCode,
+                arrAirport: arrAirportCode,
+                depDate: depDate,
+            });
+        }
     }
 
     const getDateList = () => {
@@ -70,99 +81,118 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
 
     return (
         <Fragment>
+
             <Stack
-                direction={{ xs: 'column', md: 'row' }}
+                direction='column'
                 justifyContent='center'
                 alignItems='center'
-                spacing={1}
                 sx={{
-                    padding:'50px 0px'
+                    padding: '50px 0px',
                 }}
             >
-                <Autocomplete
-                    disablePortal
-                    id="dep-airport-auto-complete"
-                    options={formattedAirportList}
-                    sx={(theme) => ({
-                        [theme.breakpoints.down("md")]: {
-                           width: '90vw',
-                        },
-                        [theme.breakpoints.up("md")]: {
-                           width: '25vw',
-                        },
-                    })}
-                    value={depAirportVal}
-                    onChange={(event, newValue) => {
-                        setDepAirportVal(newValue);
+                {showValidationError ?
+                    (<Chip
+                        sx={{
+                            width: 'auto'
+                        }}
+                        color="error"
+                        label='Please select inputs for search'
+                    ></Chip>) : null
+                }
+                <Stack
+                    direction={{ xs: 'column', md: 'row' }}
+                    justifyContent='center'
+                    alignItems='center'
+                    spacing={1}
+                    sx={{
+                        padding: '10px 0px'
                     }}
-                    inputValue={depAirportInpVal}
-                    onInputChange={(event, newInputValue) => {
-                        setDepAirportInpVal(newInputValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Departure Airport" />}
-                    renderOption={(props, option) => (
-                        <Box component="li" sx={{textAlign:'start', fontSize:'0.875rem'}} {...props}>
-                            {option.label}
-                        </Box>
-                    )}
-                />
-                <Autocomplete
-                    disablePortal
-                    id="arr-airport-auto-complete"
-                    options={formattedAirportList}
-                    sx={(theme) => ({
-                        [theme.breakpoints.down("md")]: {
-                           width: '90vw',
-                        },
-                        [theme.breakpoints.up("md")]: {
-                           width: '25vw',
-                        },
-                    })}
-                    value={arrAirportVal}
-                    onChange={(event, newValue) => {
-                        setArrAirportVal(newValue);
-                    }}
-                    inputValue={arrAirportInpVal}
-                    onInputChange={(event, newInputValue) => {
-                        setArrAirportInpVal(newInputValue);
-                    }}
-                    renderInput={(params) => <TextField {...params} label="Arrival Airport" />}
-                    renderOption={(props, option) => (
-                        <Box component="li" sx={{textAlign:'start', fontSize:'0.875rem'}} {...props}>
-                            {option.label}
-                        </Box>
-                    )}
-                />
-                <Box width={{ xs: '90vw', md: '20vw' }}>
-                    <TextField
-                        label='Select Date'
-                        select
-                        fullWidth
-                        value={depDate}
-                        onChange={handleDepDateChange}>
-                        {getDateList().map(dateObj => (
-                            <MenuItem key={dateObj.dateValue} value={dateObj.dateValue}>{dateObj.dateLabel}</MenuItem>
-                        ))}
-                    </TextField>
-                </Box>
-                <Button 
-                sx={(theme) => ({
-                    [theme.breakpoints.down("md")]: {
-                        width: '90vw', 
-                        padding: '15px 0px'
-                    },
-                    [theme.breakpoints.up("md")]: {
-                        width: '15vw', 
-                        padding: '15px 0px',
-                    },
-                })}
-                variant="contained" 
-                color="error"
-                onClick={() => {
-                    handleViewDetailsClick();
-                  }}>
-                    View Details
-                </Button>
+                >
+                    <Autocomplete
+                        disablePortal
+                        id="dep-airport-auto-complete"
+                        options={formattedAirportList}
+                        sx={(theme) => ({
+                            [theme.breakpoints.down("md")]: {
+                                width: '90vw',
+                            },
+                            [theme.breakpoints.up("md")]: {
+                                width: '25vw',
+                            },
+                        })}
+                        value={depAirportVal}
+                        onChange={(event, newValue) => {
+                            setDepAirportVal(newValue);
+                        }}
+                        inputValue={depAirportInpVal}
+                        onInputChange={(event, newInputValue) => {
+                            setDepAirportInpVal(newInputValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Departure Airport" />}
+                        renderOption={(props, option) => (
+                            <Box component="li" sx={{ textAlign: 'start', fontSize: '0.875rem' }} {...props}>
+                                {option.label}
+                            </Box>
+                        )}
+                    />
+                    <Autocomplete
+                        disablePortal
+                        id="arr-airport-auto-complete"
+                        options={formattedAirportList}
+                        sx={(theme) => ({
+                            [theme.breakpoints.down("md")]: {
+                                width: '90vw',
+                            },
+                            [theme.breakpoints.up("md")]: {
+                                width: '25vw',
+                            },
+                        })}
+                        value={arrAirportVal}
+                        onChange={(event, newValue) => {
+                            setArrAirportVal(newValue);
+                        }}
+                        inputValue={arrAirportInpVal}
+                        onInputChange={(event, newInputValue) => {
+                            setArrAirportInpVal(newInputValue);
+                        }}
+                        renderInput={(params) => <TextField {...params} label="Arrival Airport" />}
+                        renderOption={(props, option) => (
+                            <Box component="li" sx={{ textAlign: 'start', fontSize: '0.875rem' }} {...props}>
+                                {option.label}
+                            </Box>
+                        )}
+                    />
+                    <Box width={{ xs: '90vw', md: '20vw' }}>
+                        <TextField
+                            label='Select Date'
+                            select
+                            fullWidth
+                            value={depDate}
+                            onChange={handleDepDateChange}>
+                            {getDateList().map(dateObj => (
+                                <MenuItem key={dateObj.dateValue} value={dateObj.dateValue}>{dateObj.dateLabel}</MenuItem>
+                            ))}
+                        </TextField>
+                    </Box>
+                    <Button
+                        sx={(theme) => ({
+                            [theme.breakpoints.down("md")]: {
+                                width: '90vw',
+                                padding: '15px 0px'
+                            },
+                            [theme.breakpoints.up("md")]: {
+                                width: '15vw',
+                                padding: '15px 0px',
+                            },
+                        })}
+                        variant="contained"
+                        color="error"
+                        onClick={() => {
+                            handleViewDetailsClick();
+                        }}>
+                        View Details
+                    </Button>
+                </Stack>
             </Stack>
         </Fragment>
     )
