@@ -141,7 +141,7 @@ const FlightInput = ({ airportList, getFlightStatusInfo }) => {
                         value={depDate}
                         onChange={handleDepDateChange}>
                         {getDateList().map(dateObj => (
-                            <MenuItem value={dateObj.dateValue}>{dateObj.dateLabel}</MenuItem>
+                            <MenuItem key={dateObj.dateValue} value={dateObj.dateValue}>{dateObj.dateLabel}</MenuItem>
                         ))}
                     </TextField>
                 </Box>
