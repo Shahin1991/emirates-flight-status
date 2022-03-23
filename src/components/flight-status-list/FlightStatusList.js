@@ -62,10 +62,12 @@ const FlightStatusList = ({ flightList, airportList }) => {
                             arrivalTerminal,
                             departureTime: {
                                 schedule: scheduleDeparture,
+                                estimated: estimatedDeparture,
                                 actual: actualDeparture,
                             },
                             arrivalTime: {
                                 schedule: scheduleArrival,
+                                estimated: estimatedArrival,
                                 actual: actualArrival,
                             },
                         }]
@@ -106,10 +108,18 @@ const FlightStatusList = ({ flightList, airportList }) => {
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.875rem' }} component="div">Departed:</Typography>
                                             <Typography variant="h3" component="div">
-                                                {getTimeStringFromDate(actualDeparture)}
+                                                {actualDeparture ?
+                                                    getTimeStringFromDate(actualDeparture) :
+                                                    (estimatedDeparture ?
+                                                        getTimeStringFromDate(estimatedDeparture) : 'NA')
+                                                }
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.875rem' }} component="div">
-                                                {getDateStringFromDate(actualDeparture)}
+                                                {actualDeparture ?
+                                                    getDateStringFromDate(actualDeparture) :
+                                                    (estimatedDeparture ?
+                                                        getTimeStringFromDate(estimatedDeparture) : 'NA')
+                                                }
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.75rem', textAlign:'start' }} component="div">
                                                 {`Scheduled Departure: ${getTimeStringFromDate(scheduleDeparture)}`}
@@ -146,10 +156,18 @@ const FlightStatusList = ({ flightList, airportList }) => {
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.875rem' }} component="div">Arrived:</Typography>
                                             <Typography variant="h3" component="div">
-                                                {getTimeStringFromDate(actualArrival)}
+                                                {actualArrival ?
+                                                    getTimeStringFromDate(actualArrival) :
+                                                    (estimatedArrival ?
+                                                        getTimeStringFromDate(estimatedArrival) : 'NA')
+                                                }
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.875rem' }} component="div">
-                                                {getDateStringFromDate(actualArrival)}
+                                                {actualArrival ?
+                                                    getDateStringFromDate(actualArrival) :
+                                                    (estimatedArrival ?
+                                                        getDateStringFromDate(estimatedArrival) : 'NA')
+                                                }
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.75rem', textAlign:'start' }} component="div">
                                                 {`Scheduled Arrival: ${getTimeStringFromDate(scheduleArrival)}`}
@@ -288,10 +306,18 @@ const FlightStatusList = ({ flightList, airportList }) => {
                                                     Departed:
                                                 </Typography>
                                                 <Typography variant="h3" component="div">
-                                                    {getTimeStringFromDate(actualDeparture)}
+                                                    {actualDeparture ?
+                                                        getTimeStringFromDate(actualDeparture) :
+                                                        (estimatedDeparture ?
+                                                            getTimeStringFromDate(estimatedDeparture) : 'NA')
+                                                    }
                                                 </Typography>
                                                 <Typography variant="body2" sx={{ fontSize: '0.875rem' }} component="div">
-                                                    {getDateStringFromDate(actualDeparture)}
+                                                    {actualDeparture ?
+                                                        getDateStringFromDate(actualDeparture) :
+                                                        (estimatedDeparture ?
+                                                            getTimeStringFromDate(estimatedDeparture) : 'NA')
+                                                    }
                                                 </Typography>
                                                 <Typography variant="body2" sx={{ fontSize: '0.75rem', textAlign:'start' }} component="div">
                                                     {`Scheduled Departure: ${getTimeStringFromDate(scheduleDeparture)}`}
@@ -312,10 +338,18 @@ const FlightStatusList = ({ flightList, airportList }) => {
                                                     Arrived:
                                                 </Typography>
                                                 <Typography variant="h3" component="div">
-                                                    {getTimeStringFromDate(actualArrival)}
+                                                    {actualArrival ?
+                                                        getTimeStringFromDate(actualArrival) :
+                                                        (estimatedArrival ?
+                                                            getTimeStringFromDate(estimatedArrival) : 'NA')
+                                                    }
                                                 </Typography>
                                                 <Typography variant="body2" sx={{ fontSize: '0.875rem' }} component="div">
-                                                    {getDateStringFromDate(actualArrival)}
+                                                    {actualArrival ?
+                                                        getDateStringFromDate(actualArrival) :
+                                                        (estimatedArrival ?
+                                                            getDateStringFromDate(estimatedArrival) : 'NA')
+                                                    }
                                                 </Typography>
                                                 <Typography variant="body2" sx={{ fontSize: '0.75rem', textAlign:'start' }} component="div">
                                                     {`Scheduled Arrival: ${getTimeStringFromDate(scheduleArrival)}`}
