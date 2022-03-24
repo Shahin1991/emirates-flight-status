@@ -118,7 +118,7 @@ const FlightStatusList = ({ flightList, airportList }) => {
                                                 {actualDeparture ?
                                                     getDateStringFromDate(actualDeparture) :
                                                     (estimatedDeparture ?
-                                                        getTimeStringFromDate(estimatedDeparture) : 'NA')
+                                                        getDateStringFromDate(estimatedDeparture) : 'NA')
                                                 }
                                             </Typography>
                                             <Typography variant="body2" sx={{ fontSize: '0.75rem', textAlign:'start' }} component="div">
