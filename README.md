@@ -14,7 +14,7 @@ When a user selects the inputs and clicks on View details button, the API for fl
 Assumptions:
 
 Currently, the API for getting flight status for Emirates is blocked by CORS. Hence, using a mock response from an actual result to show the results
-A possible way to circumvent the CORS behaviour is by having a proxy service in between the client and the API. The client will call the proxy service with all the parameters. The proxy service will call the flight status API. The proxy service should be able to call the flight status API as CORS restrictions are rules enforced by browser. The proxy service can return the response received from the API to the client with the correct CORS header parameters
+A possible way to circumvent the CORS behaviour is by having a proxy service in between the client and the API. The client will call the proxy service with all the parameters. The proxy service will call the flight status API. The proxy service should be able to call the flight status API as CORS restrictions are rules enforced by browser. The proxy service can return the response received from the API to the client with the correct CORS header parameters.
 
 Application is hosted in github pages on:
 https://shahin1991.github.io/emirates-flight-status/
